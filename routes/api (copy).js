@@ -9,31 +9,21 @@ module.exports = function (app) {
 
     .get(function (req, res) {
       let project = req.params.project;
-      let projectQueried = projectObject[project];
+      let projectToReturn = projectObject[project];
 
-      let query = req.query;
-      if (query.open == "true") {
-        query.open = true;
-      }
-      if (query.open == "false") {
-        query.open = false;
-      }
+      // handle filtering based on params
 
-      // help from https://stackoverflow.com/questions/69010671/filter-an-array-of-objects-by-another-object-of-filters
-      let filteredQuery = projectQueried.filter((o) =>
-        Object.keys(query).every((k) => query[k] === o[k])
-      );
-
-      if (query == {}) {
-        res.json(projectQueried);
-      } else {
-        res.json(filteredQuery);
-      }
-      // do I need to handle an invalid query? aka query that contains fields that dont exist?
+      res.json(projectToReturn);
     })
 
     .post(function (req, res) {
+      console.log("***");
+      console.log(req.params);
+      console.log("***");
+      console.log(req.body);
       let project = req.params.project;
+      console.log(req.params.project);
+
       if (!projectObject[project]) {
         projectObject[project] = [];
       }
@@ -63,16 +53,23 @@ module.exports = function (app) {
       };
 
       if (!issue_title || !issue_text || !created_by) {
+        console.log("ERROR");
         res.json({ error: "required field(s) missing" });
       } else {
+        console.log("SUCCESS");
+        console.log(id);
         projectObject[project].push(objectToReturn);
         res.json(objectToReturn);
+        console.log(projectObject);
         id += "a"; // make this more elegant, use a function to randomly gen an id that doesn't exist
+        console.log(id);
       }
     })
 
     .put(function (req, res) {
       let project = req.params.project;
+
+      console.log("req.body:", req.body);
 
       let id = req.body._id;
       if (!id) {
@@ -84,7 +81,6 @@ module.exports = function (app) {
         let updatedAssignedTo = req.body.assigned_to;
         let updatedStatusText = req.body.status_text;
         let closeIssue = req.body.open;
-
         if (
           !updatedIssueTitle &&
           !updatedIssueText &&
@@ -106,9 +102,12 @@ module.exports = function (app) {
             (x) => x._id == id
           );
           let issueToUpdate = projectObject[project][indexToUpdate];
+
           if (issueToUpdate == undefined) {
             res.json({ error: "could not update", _id: id });
           } else {
+            console.log("issueToUpdate:", issueToUpdate);
+
             if (updatedIssueTitle) {
               issueToUpdate.issue_title = updatedIssueTitle;
             }
@@ -128,7 +127,12 @@ module.exports = function (app) {
               issueToUpdate.open = false;
             }
             issueToUpdate.updated_on = new Date().toISOString();
+
             res.json({ result: "successfully updated", _id: id });
+
+            console.log("issueToUpdate after updating:", issueToUpdate);
+            console.log("project after updating:", projectObject[project]);
+            console.log("projectObject after updating:", projectObject);
           }
         } else {
           res.json({ error: "could not update", _id: id });

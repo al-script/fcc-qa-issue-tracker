@@ -1,11 +1,11 @@
-* {
+/* * {
   margin: 0px;
   padding: 0px;
 }
 
 body {
   padding: 10px;
-}
+} */
 
 .issue {
   margin: 20px;
@@ -20,4 +20,48 @@ body {
 
 .id {
   font-size: 10.5px;
+}
+
+/****** Main Styling ******/
+
+body {
+  background-color: #a9b4c2;
+  text-align: center;
+}
+
+.display-1 {
+  color: white;
+}
+
+.display-5 {
+  font-size: 2rem;
+}
+
+.display-6 {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.card {
+  border: none;
+  background-color: white;
+}
+
+h3 {
+  margin-top: 15px;
+}
+
+code {
+  font-family: monospace;
+  padding: 2px;
+  color: black;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #2574a9;
 }

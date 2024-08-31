@@ -130,21 +130,20 @@
             <div class="row p-3">
               <div class="display-1">Issue Tracker</div>
 
-              <div class="row p-3">
-                <div class="card shadow p-1 gy-3">
-                  <div class="card-body">
-                    <section style="margin: 0 50px">
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        Example <code>GET</code> usage
-                      </div>
-                      <code>/api/issues/{project}</code><br />
-                      <code
-                        >/api/issues/{project}?open=true&amp;assigned_to=Joe</code
-                      ><br />
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        Example return
-                      </div>
-                      <pre>
+              <div class="card shadow p-1 gy-3">
+                <div class="card-body">
+                  <section style="margin: 0 50px">
+                    <div class="display-4 fs-3 fw-semibold pb-2">
+                      Example <code>GET</code> usage
+                    </div>
+                    <code>/api/issues/{project}</code><br />
+                    <code
+                      >/api/issues/{project}?open=true&amp;assigned_to=Joe</code
+                    ><br />
+                    <div class="display-4 fs-3 fw-semibold pb-2">
+                      Example return
+                    </div>
+                    <pre>
 <code>[
   { 
     "_id": "5871dda29faedc3491ff93bb",
@@ -161,207 +160,179 @@
  ]
 </code>
 </pre>
-
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        Examples
-                      </div>
-                      Go to
-                      <a href="/api/issues/apitest/"
-                        ><code>/api/issues/apitest/</code></a
-                      >
-                      project
-                    </section>
-                  </div>
+                  </section>
                 </div>
               </div>
 
-              <div class="container" id="testui">
-                <div class="row p-3">
-                  <div class="card shadow p-1 gy-3">
-                    <div class="card-body">
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        API Tests
-                      </div>
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        Submit issue on <i>apitest</i>
-                      </div>
+              <div class="card shadow p-1 gy-3">
+                <div class="card-body">
+                  <div class="container" id="testui">
+                    <div class="display-4 fs-3 fw-semibold pb-2">Examples</div>
+                    Go to
+                    <a href="/api/issues/apitest/"
+                      ><code>/api/issues/apitest/</code></a
+                    >
+                    project
+                    <div class="display-4 fs-3 fw-semibold pb-2">API Tests</div>
+                    <div class="display-4 fs-3 fw-semibold pb-2">
+                      Submit issue on <i>apitest</i>
+                    </div>
 
-                      <form
-                        id="testForm"
-                        class="align-items-center justify-content-center"
+                    <form
+                      id="testForm"
+                      class="align-items-center justify-content-center"
+                    >
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="issue_title"
+                        placeholder="*Title"
+                        required=""
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <textarea
+                        class="form-control mb-3"
+                        type="text"
+                        name="issue_text"
+                        placeholder="*Text"
+                        required=""
+                      ></textarea>
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="created_by"
+                        placeholder="*Created by"
+                        required=""
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="assigned_to"
+                        placeholder="(opt)Assigned to"
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="status_text"
+                        placeholder="(opt)Status text"
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <button class="btn btn-primary mb-3" type="submit">
+                        Submit Issue
+                      </button>
+                      <!--                       </div> -->
+                    </form>
+
+                    <br />
+                    <div class="display-4 fs-3 fw-semibold pb-2">
+                      Update issue on <i>apitest</i> (Change any or all to
+                      update issue on the _id supplied)
+                    </div>
+
+                    <form
+                      id="testForm2"
+                      class="align-items-center justify-content-center mb-3"
+                    >
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="_id"
+                        placeholder="*_id"
+                        required=""
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="issue_title"
+                        placeholder="(opt)Title"
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <textarea
+                        class="form-control mb-3"
+                        type="text"
+                        name="issue_text"
+                        placeholder="(opt)Text"
+                      ></textarea>
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="created_by"
+                        placeholder="(opt)Created by"
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="assigned_to"
+                        placeholder="(opt)Assigned to"
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="status_text"
+                        placeholder="(opt)Status text"
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <label
+                        ><input
+                          class="form-check-input mb-3"
+                          type="checkbox"
+                          name="open"
+                          value="false"
+                        />
+                        Check to close issue</label
                       >
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="issue_title"
-                          placeholder="*Title"
-                          required=""
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <textarea
-                          class="form-control mb-3"
-                          type="text"
-                          name="issue_text"
-                          placeholder="*Text"
-                          required=""
-                        ></textarea>
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="created_by"
-                          placeholder="*Created by"
-                          required=""
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="assigned_to"
-                          placeholder="(opt)Assigned to"
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="status_text"
-                          placeholder="(opt)Status text"
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <button class="btn btn-primary mb-3" type="submit">
-                          Submit Issue
-                        </button>
-                        <!--                       </div> -->
-                      </form>
-                    </div>
-                  </div>
-                </div>
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <button class="btn btn-primary mb-3" type="submit">
+                        Update Issue
+                      </button>
+                      <!--                       </div> -->
+                    </form>
 
-                <div class="row p-3">
-                  <div class="card shadow p-1 gy-3">
-                    <div class="card-body">
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        Update issue on <i>apitest</i> (Change any or all to
-                        update issue on the _id supplied)
-                      </div>
-
-                      <form
-                        id="testForm2"
-                        class="align-items-center justify-content-center mb-3"
-                      >
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="_id"
-                          placeholder="*_id"
-                          required=""
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="issue_title"
-                          placeholder="(opt)Title"
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <textarea
-                          class="form-control mb-3"
-                          type="text"
-                          name="issue_text"
-                          placeholder="(opt)Text"
-                        ></textarea>
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="created_by"
-                          placeholder="(opt)Created by"
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="assigned_to"
-                          placeholder="(opt)Assigned to"
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="status_text"
-                          placeholder="(opt)Status text"
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <label
-                          ><input
-                            class="form-check-input mb-3"
-                            type="checkbox"
-                            name="open"
-                            value="false"
-                          />
-                          Check to close issue</label
-                        >
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <button class="btn btn-primary mb-3" type="submit">
-                          Update Issue
-                        </button>
-                        <!--                       </div> -->
-                      </form>
+                    <br />
+                    <div class="display-4 fs-3 fw-semibold pb-2">
+                      Delete issue on <i>apitest</i>
                     </div>
-                  </div>
-                </div>
-
-                <div class="row p-3">
-                  <div class="card shadow p-1 gy-3">
-                    <div class="card-body">
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        Delete issue on <i>apitest</i>
-                      </div>
-                      <form
-                        id="testForm3"
-                        class="align-items-center justify-content-center"
-                      >
-                        <!--                       <div class="col-12"> -->
-                        <input
-                          class="form-control mb-3"
-                          type="text"
-                          name="_id"
-                          placeholder="_id"
-                          required=""
-                        />
-                        <!--                       </div> -->
-                        <!--                       <div class="col-12"> -->
-                        <button class="btn btn-primary mb-3" type="submit">
-                          Delete Issue
-                        </button>
-                        <!--                       </div> -->
-                      </form>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row p-3">
-                  <div class="card shadow p-1 gy-3">
-                    <div class="card-body">
-                      <div class="display-4 fs-3 fw-semibold pb-2">
-                        API Tests Status:
-                      </div>
-                      <code id="jsonResult"></code>
-                    </div>
+                    <form
+                      id="testForm3"
+                      class="align-items-center justify-content-center"
+                    >
+                      <!--                       <div class="col-12"> -->
+                      <input
+                        class="form-control mb-3"
+                        type="text"
+                        name="_id"
+                        placeholder="_id"
+                        required=""
+                      />
+                      <!--                       </div> -->
+                      <!--                       <div class="col-12"> -->
+                      <button class="btn btn-primary mb-3" type="submit">
+                        Delete Issue
+                      </button>
+                      <!--                       </div> -->
+                    </form>
+                    <code id="jsonResult"></code>
                   </div>
                 </div>
               </div>
